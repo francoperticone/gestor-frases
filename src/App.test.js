@@ -28,16 +28,16 @@ describe("Gestor de Frases", () => {
     const addButton = screen.getByText("Agregar");
     const searchInput = screen.getByPlaceholderText("Buscar");
 
-    fireEvent.change(input, { target: { value: "React es genial" } });
+    fireEvent.change(input, { target: { value: "Frase 1" } });
     fireEvent.click(addButton);
 
-    fireEvent.change(input, { target: { value: "Otra frase" } });
+    fireEvent.change(input, { target: { value: "Frase 2" } });
     fireEvent.click(addButton);
 
     fireEvent.change(searchInput, { target: { value: "React" } });
 
-    expect(screen.getByText("React es genial")).toBeInTheDocument();
-    expect(screen.queryByText("Otra frase")).not.toBeInTheDocument();
+    expect(screen.getByText("Frase 1")).toBeInTheDocument();
+    expect(screen.queryByText("Frase 2")).not.toBeInTheDocument();
   });
 
   test("Permite eliminar una frase", () => {
