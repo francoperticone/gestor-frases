@@ -1,4 +1,3 @@
-import React from "react";
 import { PhraseProvider } from "./context/PhraseContext";
 import PhraseInput from "./components/PhraseInput";
 import PhraseList from "./components/PhraseList";
@@ -18,6 +17,5 @@ const App = () => {
     </PhraseProvider>
   );
 };
-
 
 export default App;

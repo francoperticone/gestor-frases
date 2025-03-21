@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { usePhraseContext } from "../context/PhraseContext";
 
 const PhraseInput = () => {
   const { addPhrase, setSearchTerm } = usePhraseContext();
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState<string>("");
 
-  const handleChange = (e) => setInputValue(e.target.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputValue.trim()) {
       addPhrase(inputValue);
@@ -21,7 +23,9 @@ const PhraseInput = () => {
         type="text"
         placeholder="Buscar frases..."
         className="border p-2 w-full mb-2 rounded-md shadow-sm focus:ring focus:ring-blue-300"
-        onChange={(e) => setSearchTerm(e.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+          setSearchTerm(e.target.value)
+        }
       />
       <form onSubmit={handleSubmit} className="flex gap-2">
         <input

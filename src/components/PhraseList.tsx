@@ -7,8 +7,11 @@ const PhraseList = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
       {filteredPhrases.length > 0 ? (
-        filteredPhrases.map((phrase, index) => (
-          <div key={index} className="bg-gray-100 p-4 flex justify-between items-center rounded-lg shadow-md">
+        filteredPhrases.map((phrase: string, index: number) => (
+          <div
+            key={index}
+            className="bg-gray-100 p-4 flex justify-between items-center rounded-lg shadow-md"
+          >
             <span className="text-gray-700">{phrase}</span>
             <button
               onClick={() => removePhrase(phrase)}
